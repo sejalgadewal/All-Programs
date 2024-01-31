@@ -1,4 +1,4 @@
-# require 'byebug'
+require 'byebug'
 #peak element in array :- 
     # arr = [10,5,20,30,45]
     # n = arr.length
@@ -301,18 +301,78 @@
 
 #first repeated element in array :- 
 
-arr = [6, 10, 5, 4, 9, 120, 4, 6, 10]
-n = arr.length
-for i in (0...n)
-    for j in ((i+1)...n)
-        if arr[i] == arr[j] 
-            puts arr[i]
-            break
-        end 
-    end
-    break
-end
-puts "-------------------------------------------------------------------------------------------------"
+    # arr = [6, 10, 5, 4, 9, 120, 4, 6, 10]
+    # n = arr.length
+    # for i in (0...n)
+    #     for j in ((i+1)...n)
+    #         if arr[i] == arr[j] 
+    #             puts arr[i]
+    #             break
+    #         end 
+    #     end
+    #     break
+    # end
+    # puts "-------------------------------------------------------------------------------------------------"
 
-arr = [6, 10, 5, 4, 9, 120, 4, 6, 10]
-puts arr.find { |num| arr.count(num) > 1 }
+    # arr = [6, 10, 5, 4, 9, 120, 4, 6, 10]
+    # puts arr.find { |num| arr.count(num) > 1 }
+
+#first non-repeating element in array :- 
+
+    # arr = [6, 10, 5, 4, 9, 120, 4, 6, 10]
+    # n = arr.length
+    # found = false
+    # for i in (0...n)
+    #     found = false
+    #     for j in ((i+1)...n)
+    #         if arr[i] == arr[j] 
+    #             found = true
+    #             break
+    #         end 
+    #     end
+    #     if !found
+    #         puts "non repeating element :- ", arr[i]
+    #         break
+    #     end
+    # end
+
+    # puts "-------------------------------------------------------------------------------------------------"
+
+    # arr = [6, 10, 5, 4, 9, 120, 4, 6, 10]
+    # frequency_hash = Hash.new(0)
+
+    # arr.each { |element| frequency_hash[element] += 1 }
+
+    # first_non_repeating_element = arr.find { |element| frequency_hash[element] == 1 }
+
+    # puts "First non-repeating element: #{first_non_repeating_element}"
+
+#count subarray of equal no. of 0's and 1's using frequency counting
+
+arr = [0, 1, 0, 1, 1, 1, 0, 0]
+n = arr.length
+sum = max_length =  0
+sum_index = {0 => [-1]}
+ending_index = -1
+
+arr.each_with_index do |element, index|
+    sum += (element == 0 ? -1 : 1)
+    if sum_index.key?(sum)
+        
+        subarray_length = index - sum_index[sum].first
+        if subarray_length > max_length
+            max_length = subarray_length
+            ending_index = index
+        end
+    else
+        sum_index[sum] = [index]
+    end
+end
+
+starting_index = ending_index - max_length + 1
+if max_length > 0
+    puts "count of subarray with 0's and 1's in array :- #{max_length} "
+else
+    puts "no subarray found"
+end
+
