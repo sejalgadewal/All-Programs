@@ -376,3 +376,44 @@ else
     puts "no subarray found"
 end
 
+
+# keypad = {
+#     '1'=> ['1', ''],
+#     '2'=> ['A','B','C','2'],
+#     '3'=> ['D','E','F','3'],
+#     '4'=> ['G','H','I','4'],
+#     '5'=> ['J','K','L','5'],
+#     '6'=> ['M','N','O','6'],
+#     '7'=> ['P','Q','R','S','7'],
+#     '8'=> ['T','U','V','8'],
+#     '9'=> ['W','X','Y','Z','9']
+# }
+
+# b = []
+# # h = {}
+# keypad.each do |k,a|
+#     for i in a
+#         if i == "S"
+#          b[]= [k,keypad[k].index(i)] 
+#         end
+#     end
+#  end
+
+#  puts b
+
+
+#  c = []
+# s = "ZAMIR"
+
+# s.each_char do |i|
+#     keypad.each do |k,a|
+#         if a.include?(i.upcase)
+#             b = [k.to_i, a.index(i.upcase) +1]
+#             c << b
+#             break
+#         end
+#     end   
+# end
+# p c
+
+
